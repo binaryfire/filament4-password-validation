@@ -29,6 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->registration()
             ->profile(EditProfile::class)
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([

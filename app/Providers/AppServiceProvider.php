@@ -5,6 +5,7 @@ namespace App\Providers;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,7 +22,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Password::defaults(function () {
+            return Password::min(8)
+                        ->letters()
+                        ->numbers()
+                        ->symbols()
+                        ->mixedCase();
+        });
     }
 
     /**

@@ -59,8 +59,10 @@ class TestPage extends Page
 
                 TextInput::make('code')
                     ->required()
+                    ->numeric()
+                    ->type('text')
                     ->length(6)
-                    ->rule('numeric'),
+                    //
             ])
             ->statePath('data');
     }
